@@ -4,7 +4,7 @@ import adventofcode.Solver
 import java.util.LinkedList
 import java.util.Queue
 
-object Day12: Solver(year = 2022, day = 12) {
+object HillClimbingAlgorithm: Solver(year = 2022, day = 12) {
     override fun part1(input: List<String>): String {
         val map = TopographicMap(input)
 

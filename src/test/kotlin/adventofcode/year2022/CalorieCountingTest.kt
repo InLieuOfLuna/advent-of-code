@@ -4,9 +4,8 @@ import org.junit.jupiter.api.Test
 
 import org.junit.jupiter.api.Assertions.*
 
-class Day1Test {
-
-    private val testInput = """
+object CalorieCountingTest: SolverTest(
+    """
         1000
         2000
         3000
@@ -21,15 +20,15 @@ class Day1Test {
         9000
 
         10000
-    """.trimIndent().lines()
-
+    """
+) {
     @Test
     fun part1() {
-        assertEquals("24000", Day1.part1(testInput))
+        assertEquals("24000", CalorieCounting.part1(input))
     }
 
     @Test
     fun part2() {
-        assertEquals("45000", Day1.part2(testInput) )
+        assertEquals("45000", CalorieCounting.part2(input) )
     }
 }

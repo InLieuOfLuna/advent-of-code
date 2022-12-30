@@ -2,7 +2,7 @@ package adventofcode.year2022
 
 import adventofcode.Solver
 
-object Day1: Solver(year = 2022, day = 1) {
+object CalorieCounting: Solver(year = 2022, day = 1) {
     override fun part1(input: List<String>): String {
         val highest = input
             .splitAt("")
