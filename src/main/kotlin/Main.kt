@@ -8,6 +8,7 @@ val year2022 = listOf(
     CampCleanup,
     SupplyStacks,
     TuningTrouble,
+    NoSpaceLeftOnDevice,
     HillClimbingAlgorithm
 )
 
