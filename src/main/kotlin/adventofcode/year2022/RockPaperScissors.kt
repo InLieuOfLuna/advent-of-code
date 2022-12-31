@@ -24,7 +24,7 @@ object RockPaperScissors: Solver(year = 2022, day = 2) {
     private fun playForResult(other: Hand, result: Result) = when (result) {
         Result.Win -> other.weakAgainst()
         Result.Draw -> other
-        Result.Loss -> other.strongAgainst()
+        Result.Lose -> other.strongAgainst()
     }
 
     private sealed class Hand(
@@ -35,7 +35,7 @@ object RockPaperScissors: Solver(year = 2022, day = 2) {
         infix fun playAgainst(other: Hand) = score + when (other) {
             strongAgainst() -> Result.Win.points
             this -> Result.Draw.points
-            weakAgainst() -> Result.Loss.points
+            weakAgainst() -> Result.Lose.points
             else -> throw Exception("Impossible: $this, ${weakAgainst()}, ${strongAgainst()}")
         }
         companion object {
@@ -54,10 +54,10 @@ object RockPaperScissors: Solver(year = 2022, day = 2) {
     enum class Result(val points: Int) {
         Win(6),
         Draw(3),
-        Loss(0);
+        Lose(0);
         companion object {
             fun decode(string: String) = when (string) {
-                "X" -> Loss
+                "X" -> Lose
                 "Y" -> Draw
                 "Z" -> Win
                 else -> throw Exception("Impossible: $string")
