@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test
 
 import org.junit.jupiter.api.Assertions.*
 
-class CampCleanupTest: SolverTest(
+object CampCleanupTest: SolverTest(
     """
         2-4,6-8
         2-3,4-5
