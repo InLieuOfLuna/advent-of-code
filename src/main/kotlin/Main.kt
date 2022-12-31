@@ -1,3 +1,4 @@
+import adventofcode.year2022.RopeBridge
 import adventofcode.year2022.*
 import java.util.Scanner
 
@@ -10,6 +11,7 @@ val year2022 = listOf(
     TuningTrouble,
     NoSpaceLeftOnDevice,
     TreetopTreeHouse,
+    RopeBridge,
     HillClimbingAlgorithm
 )
 
