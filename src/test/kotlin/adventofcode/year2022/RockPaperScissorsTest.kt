@@ -19,5 +19,6 @@ object RockPaperScissorsTest: SolverTest(
 
     @Test
     fun part2() {
+        assertEquals("12", RockPaperScissors.part2(input))
     }
 }
