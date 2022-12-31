@@ -21,8 +21,8 @@ fun main() {
     if (part == "2") println(day.part2(input))
 }
 
-private fun readLines() = sequence {
+private fun readLines() = buildList {
     with(Scanner(System.`in`)) {
-        while (hasNext()) yield(nextLine())
+        while (hasNext()) add(nextLine())
     }
-}.toList()
+}
