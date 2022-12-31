@@ -6,6 +6,7 @@ val year2022 = listOf(
     RockPaperScissors,
     RucksackReorganization,
     CampCleanup,
+    SupplyStacks,
     HillClimbingAlgorithm
 )
 
