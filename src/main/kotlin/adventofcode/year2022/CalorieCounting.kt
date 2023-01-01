@@ -4,33 +4,26 @@ import adventofcode.Solver
 
 object CalorieCounting: Solver(year = 2022, day = 1) {
     override fun part1(input: List<String>): String {
-        val highest = input
-            .splitAt("")
-            .maxOf { it.map(Integer::parseInt).sum() }
-        return highest.toString()
+        return assessBags(input)
+            .max()
+            .toString()
     }
 
     override fun part2(input: List<String>): String {
-        val sumOfThreeHighest = input
-            .splitAt("")
-            .map { it.map(Integer::parseInt).sum() }
+        return assessBags(input)
             .sortedDescending()
-            .subList(0, 3).sum()
-        return sumOfThreeHighest.toString()
+            .subList(0, 3)
+            .sum()
+            .toString()
     }
-    private fun <T> List<T>.splitAt(separator: T): List<List<T>> {
-        val result = mutableListOf<List<T>>()
-        var list = mutableListOf<T>()
-
-        forEach { item ->
-            if (item == separator) {
-                result.add(list)
-                list = mutableListOf()
-            } else {
-                list.add(item)
+    private fun assessBags(input: List<String>) = assessBags(input.joinToString("\n"))
+    private fun assessBags(input: String): List<Int> {
+        return input.trim()
+            .split("\n\n")
+            .map {
+                it.lines()
+                    .map(Integer::parseInt)
+                    .sum()
             }
-        }
-        if (list.size > 0) result.add(list)
-        return result
     }
 }
