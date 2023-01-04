@@ -1,57 +1,27 @@
 package adventofcode.year2022
 
+import adventofcode.BreadthFirstSearch
 import adventofcode.Solver
-import java.util.LinkedList
-import java.util.Queue
 
 object HillClimbingAlgorithm: Solver(year = 2022, day = 12) {
     override fun part1(input: List<String>): String {
-        val map = TopographicMap(input)
-
-        val steps = breadthFirstSearch(
-            { with(map) { it.getAdjacentPositions() } },
-            start = map.start,
-            goalCheck = map.end::equals
-        ).size - 1
-
-        return steps.toString()
+        with(TopographicMap(input)) {
+            return BreadthFirstSearch.shortestDistanceTo(
+                { it.getAdjacentPositions() },
+                start = start,
+                goalTerminationCheck = end::equals
+            ).toString()
+        }
     }
 
     override fun part2(input: List<String>): String {
-        val map = TopographicMap(input)
-        val steps = breadthFirstSearch(
-            { with(map) { it.getAdjacentPositions(true) } },
-            start = map.end,
-            goalCheck = { with(map) { it.char == 'a' || it.char == 'S' } }
-        ).size - 1
-        return steps.toString()
-    }
-
-    private fun <T> breadthFirstSearch(discover: (T) -> Set<T>, start: T, goalCheck: (T) -> Boolean): List<T> {
-        val searchQueue: Queue<T> = LinkedList<T>().apply { add(start) }
-        val breadcrumbs = mutableMapOf<T, T>()
-
-        loop@while (searchQueue.isNotEmpty()) {
-            val position = searchQueue.poll()
-            val newSpots = discover(position)
-                .filter { !breadcrumbs.containsKey(it) }
-            for (spot in newSpots) {
-                breadcrumbs[spot] = position
-                if (goalCheck(spot)) break@loop
-            }
-            searchQueue.addAll(newSpots)
+        with(TopographicMap(input)) {
+            return BreadthFirstSearch.shortestDistanceTo(
+                { it.getAdjacentPositions(true) },
+                start = end,
+                goalTerminationCheck = { it.char == 'a' || it.char == 'S' }
+            ).toString()
         }
-        return breadcrumbs.toRoute(breadcrumbs.keys.first(goalCheck)) { it == start }
-    }
-
-    private fun <T> Map<T, T>.toRoute(start: T, endCheck: (T) -> Boolean): List<T> {
-        var current = start
-        val result = mutableListOf(current)
-        while (!endCheck(current)) {
-            current = get(current)!!
-            result += current
-        }
-        return result
     }
 
     private class TopographicMap(private val input: List<String>) {
@@ -65,12 +35,8 @@ object HillClimbingAlgorithm: Solver(year = 2022, day = 12) {
 
         infix fun Coordinate.canTravelTo(to: Coordinate): Boolean {
             if (z < to.z - 1) return false
-            if (x == to.x) {
-                return (y-1..y+1).contains(to.y)
-            }
-            if (y == to.y) {
-                return (x-1..x+1).contains(to.x)
-            }
+            if (x == to.x) return (y-1..y+1).contains(to.y)
+            if (y == to.y) return (x-1..x+1).contains(to.x)
             return false
         }
 

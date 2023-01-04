@@ -12,7 +12,8 @@ val year2022 = listOf(
     NoSpaceLeftOnDevice,
     TreetopTreeHouse,
     RopeBridge,
-    HillClimbingAlgorithm
+    HillClimbingAlgorithm,
+    BoilingBoulders
 )
 
 fun main() {
