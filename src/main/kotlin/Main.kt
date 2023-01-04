@@ -13,6 +13,7 @@ val year2022 = listOf(
     TreetopTreeHouse,
     RopeBridge,
     HillClimbingAlgorithm,
+    ProboscideaVolcanium,
     BoilingBoulders
 )
 

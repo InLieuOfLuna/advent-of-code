@@ -1,7 +1,7 @@
 package adventofcode.year2022
 
-import adventofcode.BreadthFirstSearch
 import adventofcode.Solver
+import adventofcode.common.BreadthFirstSearch
 
 object HillClimbingAlgorithm: Solver(year = 2022, day = 12) {
     override fun part1(input: List<String>): String {
