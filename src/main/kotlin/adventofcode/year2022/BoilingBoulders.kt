@@ -1,7 +1,7 @@
 package adventofcode.year2022
 
-import adventofcode.BreadthFirstSearch
 import adventofcode.Solver
+import adventofcode.common.BreadthFirstSearch
 import kotlin.math.abs
 
 object BoilingBoulders: Solver(year = 2022, day = 18) {
