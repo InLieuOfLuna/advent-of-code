@@ -4,8 +4,9 @@ import org.junit.jupiter.api.Test
 
 import org.junit.jupiter.api.Assertions.*
 
-class NoSpaceLeftOnDeviceTest : SolverTest(
-    """
+class NoSpaceLeftOnDeviceTest {
+
+    val input = """
         ${'$'} cd /
         ${'$'} ls
         dir a
@@ -29,8 +30,7 @@ class NoSpaceLeftOnDeviceTest : SolverTest(
         8033020 d.log
         5626152 d.ext
         7214296 k
-    """
-) {
+    """.trimIndent().lines()
 
     @Test
     fun part1() {

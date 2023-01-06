@@ -4,15 +4,15 @@ import org.junit.jupiter.api.Test
 
 import org.junit.jupiter.api.Assertions.*
 
-class TreetopTreeHouseTest : SolverTest(
-    """
+class TreetopTreeHouseTest {
+
+    val input = """
         30373
         25512
         65332
         33549
         35390
-    """
-) {
+    """.trimIndent().lines()
 
     @Test
     fun part1() {

@@ -4,15 +4,16 @@ import org.junit.jupiter.api.Test
 
 import org.junit.jupiter.api.Assertions.*
 
-object HillClimbingAlgorithmTest: SolverTest(
-    """
+class HillClimbingAlgorithmTest {
+
+    val input = """
         Sabqponm
         abcryxxl
         accszExk
         acctuvwj
         abdefghi
-    """
-) {
+    """.trimIndent().lines()
+
     @Test
     fun part1() {
         assertEquals("31", HillClimbingAlgorithm.part1(input))

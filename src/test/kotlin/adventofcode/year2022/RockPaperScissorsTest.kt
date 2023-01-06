@@ -4,13 +4,13 @@ import org.junit.jupiter.api.Test
 
 import org.junit.jupiter.api.Assertions.*
 
-object RockPaperScissorsTest: SolverTest(
-    """
+class RockPaperScissorsTest {
+
+    val input = """
         A Y
         B X
         C Z
-    """
-) {
+    """.trimIndent().lines()
 
     @Test
     fun part1() {

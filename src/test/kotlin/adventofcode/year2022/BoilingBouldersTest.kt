@@ -4,8 +4,9 @@ import org.junit.jupiter.api.Test
 
 import org.junit.jupiter.api.Assertions.*
 
-class BoilingBouldersTest: SolverTest(
-    """
+class BoilingBouldersTest {
+
+    val input = """
         2,2,2
         1,2,2
         3,2,2
@@ -19,8 +20,7 @@ class BoilingBouldersTest: SolverTest(
         3,2,5
         2,1,5
         2,3,5
-    """
-) {
+    """.trimIndent().lines()
 
     @Test
     fun part1() {

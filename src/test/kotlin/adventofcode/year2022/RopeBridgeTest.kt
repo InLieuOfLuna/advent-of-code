@@ -4,8 +4,9 @@ import org.junit.jupiter.api.Test
 
 import org.junit.jupiter.api.Assertions.*
 
-class RopeBridgeTest : SolverTest(
-    """
+class RopeBridgeTest {
+
+    val input = """
         R 4
         U 4
         L 3
@@ -14,8 +15,7 @@ class RopeBridgeTest : SolverTest(
         D 1
         L 5
         R 2
-    """
-) {
+    """.trimIndent().lines()
 
     @Test
     fun part1() {

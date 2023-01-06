@@ -4,16 +4,16 @@ import org.junit.jupiter.api.Test
 
 import org.junit.jupiter.api.Assertions.*
 
-object RucksackReorganizationTest: SolverTest(
-    """
+class RucksackReorganizationTest {
+
+    val input = """
         vJrwpWtwJgWrhcsFMMfFFhFp
         jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL
         PmmdzqPrVvPwwTWBwg
         wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn
         ttgJtRGJQctTZtZT
         CrZsJsPPZsGzwwsLwLmpwMDw
-    """
-) {
+    """.trimIndent().lines()
 
     @Test
     fun part1() {
